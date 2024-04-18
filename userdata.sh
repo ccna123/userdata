@@ -1,4 +1,4 @@
------------------API SERVER----------------- 
+# -----------------API SERVER----------------- 
 #!bin/bash
 sudo yum update -y
 sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -11,7 +11,7 @@ cd harrypoter
 npm install
 npm run dev
 
------------------HTTP SERVER----------------- 
+# -----------------HTTP SERVER----------------- 
 #!bin/bash
 sudo yum update -y
 sudo yum install httpd -y
@@ -19,3 +19,29 @@ chkconfig httpd on
 echo $HOSTNAME > /var/www/html/index.html
 chown apache /var/www/html/index.html
 sudo systemctl start httpd
+
+# -----------------MYSQL----------------- 
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm
+sudo yum install -y mysql-community-server
+
+# -----get root password-----
+sudo grep 'temporary password' /var/log/mysqld.log
+
+
+# -----change password for root-----
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
+
+# ----create user 'sam' for specific database that connect from localhost----
+# lotr: database name
+# sam : user for lotr database
+# MyNewPass1: password
+# this user access database only from localhost
+CREATE USER 'sam'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
+GRANT ALL PRIVILEGES ON lotr.* TO 'sam'@'localhost';
+
+
+# ----create user 'frodo' for specific database from anywhere----
+CREATE USER 'frodo'@'%' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
+GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
