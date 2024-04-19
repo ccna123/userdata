@@ -11,7 +11,7 @@ cd harrypoter
 npm install
 npm run dev
 
-# -----------------HTTP SERVER----------------- 
+# -----------------HTTP SERVER AMAZON LINUX----------------- 
 #!bin/bash
 sudo yum update -y
 sudo yum install httpd -y
@@ -19,6 +19,10 @@ chkconfig httpd on
 echo $HOSTNAME > /var/www/html/index.html
 chown apache /var/www/html/index.html
 sudo systemctl start httpd
+
+# -----------------HTTP SERVER UBUNTU----------------- 
+sudo apt install apache2
+sudo systemctl status apache2
 
 # -----------------MYSQL----------------- 
 sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
