@@ -15,9 +15,8 @@ npm run dev
 #!bin/bash
 sudo yum update -y
 sudo yum install httpd -y
-chkconfig httpd on
-echo $HOSTNAME > /var/www/html/index.html
 chown apache /var/www/html/index.html
+sudo systemctl enable httpd
 sudo systemctl start httpd
 
 # -----------------HTTP SERVER UBUNTU----------------- 
