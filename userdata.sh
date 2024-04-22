@@ -5,6 +5,7 @@ sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | 
 source ~/.nvm/nvm.sh
 nvm install node
 sudo yum install git -y
+npm install -g pm2 -y
 git clone https://github.com/ccna123/appointment.git
 chmod 700 -R appointment/
 
