@@ -33,7 +33,7 @@ sudo grep 'temporary password' /var/log/mysqld.log
 
 
 # -----change password for root-----
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password123!';
 
 # ----create user 'sam' for specific database that connect from localhost----
 # lotr: database name
