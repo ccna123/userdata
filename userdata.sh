@@ -46,3 +46,6 @@ GRANT ALL PRIVILEGES ON lotr.* TO 'mit'@'localhost';
 # ----create user 'frodo' for specific database from anywhere----
 CREATE USER 'frodo'@'%' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
 GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
+
+# ----run below command to load env into prisma after fixing env file----
+npx prisma generate
