@@ -5,11 +5,9 @@ sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | 
 source ~/.nvm/nvm.sh
 nvm install node
 sudo yum install git -y
-git clone https://github.com/ccna123/harrypoter.git
-chmod 700 -R harrypoter/
-cd harrypoter
-npm install
-npm run dev
+git clone https://github.com/ccna123/appointment.git
+chmod 700 -R appointment/
+
 
 # -----------------HTTP SERVER AMAZON LINUX----------------- 
 #!bin/bash
@@ -41,8 +39,8 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPas
 # sam : user for lotr database
 # MyNewPass1: password
 # this user access database only from localhost
-CREATE USER 'sam'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
-GRANT ALL PRIVILEGES ON lotr.* TO 'sam'@'localhost';
+CREATE USER 'mit'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON lotr.* TO 'mit'@'localhost';
 
 
 # ----create user 'frodo' for specific database from anywhere----
