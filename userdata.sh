@@ -50,3 +50,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
 
 # ----run below command to load env into prisma after fixing env file----
 npx prisma generate
+
+# -----install java 17 and start app-----
+sudo dnf install java-17-amazon-correcto -y
+java -jar jar_app_name
