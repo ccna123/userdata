@@ -52,5 +52,5 @@ GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
 npx prisma generate
 
 # -----install java 17 and start app-----
-sudo dnf install java-17-amazon-correcto -y
+sudo dnf install java-17-amazon-corretto -y
 java -jar jar_app_name
