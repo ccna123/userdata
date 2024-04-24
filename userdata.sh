@@ -71,7 +71,7 @@ After=network.target
 
 [Service]
 User=ec2-user
-WorkingDirectory=/home/ec2-user/spring-app
+WorkingDirectory=/home/ec2-user/spring-app #directory of app
 ExecStart=/usr/bin/java -jar your-app.jar
 SuccessExitStatus=143
 
