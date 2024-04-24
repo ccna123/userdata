@@ -54,3 +54,11 @@ npx prisma generate
 # -----install java 17 and start app-----
 sudo dnf install java-17-amazon-corretto -y
 java -jar jar_app_name
+
+# -----install codeDeploy agent-----
+sudo yum install -y ruby
+wget https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+
+sudo service codedeploy-agent status
