@@ -68,12 +68,16 @@ sudo service codedeploy-agent status
 [Unit]
 Description=My Java Spring Application
 After=network.target
+StartLimitIntervalSec=0
 
 [Service]
 User=ec2-user
 WorkingDirectory=/home/ec2-user/spring-app #directory of app
 ExecStart=/usr/bin/java -jar your-app.jar
+Restart=always
+RestartSec=1
 SuccessExitStatus=143
+User=ec2-user
 
 [Install]
 WantedBy=multi-user.target
