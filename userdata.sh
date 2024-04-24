@@ -62,3 +62,18 @@ chmod +x ./install
 sudo ./install auto
 
 sudo service codedeploy-agent status
+
+
+# -----register spring app as service-----
+[Unit]
+Description=My Java Spring Application
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/spring-app
+ExecStart=/usr/bin/java -jar your-app.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
