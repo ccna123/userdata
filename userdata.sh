@@ -72,7 +72,7 @@ StartLimitIntervalSec=0
 
 [Service]
 User=ec2-user
-WorkingDirectory=/home/ec2-user/spring-app #directory of app
+WorkingDirectory=/home/ec2-user/spring_app
 ExecStart=/usr/bin/java -jar your-app.jar
 Restart=always
 RestartSec=1
