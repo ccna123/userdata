@@ -1,5 +1,5 @@
 # -----------------API SERVER----------------- 
-#!bin/bash
+#!/bin/bash
 sudo yum update -y
 sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.nvm/nvm.sh
@@ -11,7 +11,7 @@ chmod 700 -R appointment/
 
 
 # -----------------HTTP SERVER AMAZON LINUX----------------- 
-#!bin/bash
+#!/bin/bash
 sudo yum update -y
 sudo yum install httpd -y
 chown apache /var/www/html/index.html
