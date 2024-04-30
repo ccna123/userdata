@@ -1,0 +1,10 @@
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm
+sudo yum install -y mysql-community-server
+sudo dnf install java-17-amazon-corretto -y
+sudo yum install -y ruby
+wget https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent status
