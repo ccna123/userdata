@@ -1,9 +1,9 @@
 # -----------------API SERVER----------------- 
 #!/bin/bash
 sudo yum update -y
-sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-source ~/.nvm/nvm.sh
-nvm install node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+source ~/.bashrc
+nvm install nodenvm install --lts
 sudo yum install git -y
 npm install -g pm2 -y
 git clone https://github.com/ccna123/appointment.git
