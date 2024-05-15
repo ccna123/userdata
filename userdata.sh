@@ -75,7 +75,7 @@ StartLimitIntervalSec=0
 [Service]
 User=ec2-user
 WorkingDirectory=/home/ec2-user/spring_app
-ExecStart=/usr/bin/java -jar your-app.jar > /var/log/your-app.log 2>&1
+ExecStart=/usr/bin/java -jar your-app.jar > /var/log/spring_app_log.log 2>&1
 Restart=always
 RestartSec=1
 SuccessExitStatus=143
