@@ -1,9 +1,11 @@
 # -----------------API SERVER----------------- 
 #!/bin/bash
-sudo yum update -y
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+touch ~/.bashrc
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 source ~/.bashrc
-nvm install nodenvm install --lts
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install --lts
 sudo yum install git -y
 npm install -g pm2 -y
 git clone https://github.com/ccna123/appointment.git
@@ -81,3 +83,8 @@ User=ec2-user
 
 [Install]
 WantedBy=multi-user.target
+
+# -----config cloudwatch agent-----
+sudo yum install amazon-cloudwatch-agent -y
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
