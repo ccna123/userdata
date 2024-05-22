@@ -118,4 +118,19 @@ aws ssm start-session \
   --target インスタンスID \
   --document-name AWS-StartPortForwardingSessionToRemoteHost \
   --parameters '{"host":["RDSエンドポイント"],"portNumber":["3306"], "localPortNumber":["任意ポート"]}' \
-  --profile default
+  --profile default &
+
+{
+    "Sessions": [
+        {
+            "SessionId": "example-session-id-1",
+            "Target": "i-0123456789abcdef0",
+            "Status": "Active"
+        },
+        {
+            "SessionId": "example-session-id-2",
+            "Target": "i-0987654321fedcba0",
+            "Status": "Active"
+        }
+    ]
+}
