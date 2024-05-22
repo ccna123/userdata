@@ -20,6 +20,13 @@ chown apache /var/www/html/index.html
 sudo systemctl enable httpd
 sudo systemctl start httpd
 
+# -----------------Finding where java is installed----------------- 
+ls -l /usr/lib/jvm/
+
+# -----------------Config file for maven----------------- 
+nano ~/.mavenrc
+
+
 # -----------------HTTP SERVER UBUNTU----------------- 
 sudo apt install apache2
 sudo systemctl status apache2
@@ -54,7 +61,8 @@ GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
 npx prisma generate
 
 # -----install java 17 and start app-----
-sudo dnf install java-17-amazon-corretto -y
+# sudo dnf install java-17-amazon-corretto -y
+wget https://corretto.aws/downloads/latest/amazon-corretto-21-x64-linux-jdk.tar.gz
 java -jar jar_app_name
 
 # -----install codeDeploy agent-----
@@ -75,7 +83,7 @@ StartLimitIntervalSec=0
 [Service]
 User=ec2-user
 WorkingDirectory=/home/ec2-user/spring_app
-ExecStart=/usr/bin/java -jar your-app.jar > /var/log/spring_app_log.log 2>&1
+ExecStart=/usr/bin/java -jar your-app.jar
 Restart=always
 RestartSec=1
 SuccessExitStatus=143
@@ -83,6 +91,22 @@ User=ec2-user
 
 [Install]
 WantedBy=multi-user.target
+# [Unit]
+# Description=My Java Spring Application
+# After=network.target
+# StartLimitIntervalSec=0
+
+# [Service]
+# User=ec2-user
+# WorkingDirectory=/home/ec2-user/spring_app
+# ExecStart=/usr/bin/java -jar your-app.jar > /var/log/spring_app_log.log 2>&1
+# Restart=always
+# RestartSec=1
+# SuccessExitStatus=143
+# User=ec2-user
+
+# [Install]
+# WantedBy=multi-user.target
 
 # -----config cloudwatch agent-----
 sudo yum install amazon-cloudwatch-agent -y
