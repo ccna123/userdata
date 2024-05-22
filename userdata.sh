@@ -112,3 +112,10 @@ WantedBy=multi-user.target
 sudo yum install amazon-cloudwatch-agent -y
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
+
+# -----start ssm session-----
+aws ssm start-session \
+  --target インスタンスID \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters '{"host":["RDSエンドポイント"],"portNumber":["3306"], "localPortNumber":["任意ポート"]}' \
+  --profile default
