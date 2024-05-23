@@ -60,10 +60,12 @@ GRANT ALL PRIVILEGES ON *.* TO 'frodo'@'%';
 # ----run below command to load env into prisma after fixing env file----
 npx prisma generate
 
-# -----install java 17 and start app-----
-# sudo dnf install java-17-amazon-corretto -y
-wget https://corretto.aws/downloads/latest/amazon-corretto-21-x64-linux-jdk.tar.gz
+# -----install java 21 and start app-----
+sudo yum install java-21-amazon-corretto-headless
 java -jar jar_app_name
+
+# -----remove java 21-----
+sudo yum remove java-21-amazon-corretto-headless
 
 # -----install codeDeploy agent-----
 sudo yum install -y ruby
