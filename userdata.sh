@@ -68,11 +68,7 @@ java -jar jar_app_name
 sudo yum remove java-21-amazon-corretto-headless
 
 # -----install codeDeploy agent-----
-sudo yum install -y ruby
-wget https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/install
-chmod +x ./install
-sudo ./install auto
-
+sudo yum install -y https://aws-codedeploy-ap-northeast-1.s3.ap-northeast-1.amazonaws.com/latest/codedeploy-agent.noarch.rpm
 sudo service codedeploy-agent status
 
 
