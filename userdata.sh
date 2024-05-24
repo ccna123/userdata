@@ -118,6 +118,9 @@ aws ssm start-session \
   --parameters '{"host":["RDSエンドポイント"],"portNumber":["3306"], "localPortNumber":["任意ポート"]}' \
   --profile default &
 
+aws ssm describe-sessions --state Active
+aws ssm terminate-session --session-id <session id>
+
 {
     "Sessions": [
         {
