@@ -37,6 +37,9 @@ wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
 sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm
 sudo yum install -y mysql-community-server
 
+# -----------------MYSQL CLIENT----------------- 
+sudo yum install mysql-community-client.x86_64
+
 # -----get root password-----
 sudo grep 'temporary password' /var/log/mysqld.log
 
@@ -110,7 +113,7 @@ WantedBy=multi-user.target
 sudo yum install amazon-cloudwatch-agent -y
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -m ec2 -a status
-/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c ssm:<parameter store>
 
 # -----start ssm session-----
 aws ssm start-session \
